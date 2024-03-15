@@ -1,8 +1,20 @@
 function playGame() {
     for (let i = 0; i < 5; i++) {
-        playRound(playerSelection, computerSelection);
+        computerSelection = getComputerChoice();
+
+        
+        computerSelection = computerSelection.toLowerCase();
+
+        do {
+            playerSelection = prompt("Enter a choice");
+            playerSelection = playerSelection.toLowerCase();
+        } while (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors");
+
+        console.log(playRound(playerSelection, computerSelection));
     }
-    if (playerWins > computerWins)
+    if (playerWins == computerWins)
+        return "No one won the game. Draw.";
+    else if (playerWins > computerWins)
         return "Player won the game";
     else
         return "Computer won the game";
@@ -10,8 +22,7 @@ function playGame() {
 
 function playRound(playerSelection, computerSelection) {
     // your code here!
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
         playerWins++;
@@ -56,8 +67,8 @@ function getComputerChoice() {
     }
 }
 
-const playerSelection = prompt("Enter a choice");
-const computerSelection = getComputerChoice();
+let playerSelection;
+let computerSelection;
 let playerWins = 0;
 let computerWins = 0;
 //console.log(playRound(playerSelection, computerSelection));
