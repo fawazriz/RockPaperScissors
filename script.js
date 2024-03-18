@@ -22,6 +22,8 @@ function playGame() {
 
 function playRound(playerSelection, computerSelection) {
     // your code here!
+    computerSelection = computerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
 
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
@@ -72,4 +74,7 @@ let computerSelection;
 let playerWins = 0;
 let computerWins = 0;
 //console.log(playRound(playerSelection, computerSelection));
-console.log(playGame());
+//console.log(playGame());
+
+let btnR = document.querySelector("rock");
+btnR.addEventListener("click", console.log(playRound("rock", getComputerChoice())));
