@@ -1,31 +1,5 @@
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        computerSelection = getComputerChoice();
-
-        
-        computerSelection = computerSelection.toLowerCase();
-
-        do {
-            playerSelection = prompt("Enter a choice");
-            playerSelection = playerSelection.toLowerCase();
-        } while (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors");
-
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    if (playerWins == computerWins)
-        return "No one won the game. Draw.";
-    else if (playerWins > computerWins)
-        return "Player won the game";
-    else
-        return "Computer won the game";
-}
-
-function playRound(playerSelection, computerSelection) {
-    // your code here!
-    computerSelection = computerSelection.toLowerCase();
-    playerSelection = playerSelection.toLowerCase();
-
-
+function playRound(playerSelection, computerSelection) 
+{
     if (playerSelection == "rock" && computerSelection == "scissors") {
         playerWins++;
         return `You win ${playerSelection} beats ${computerSelection}`;
@@ -59,13 +33,25 @@ function playRound(playerSelection, computerSelection) {
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
     if (choice == 1) {
-        return "Rock";
+        return "rock";
     }
     else if (choice == 2) {
-        return "Paper";
+        return "paper";
     }
     else {
-        return "Scissors";
+        return "scissors";
+    }
+}
+
+function image(decision) {
+    if (decision == "rock") {
+        return "🥌";
+    }
+    else if (decision == "paper") {
+        return "🧻";
+    }
+    else if (decision == "scissors") {
+        return "✂";
     }
 }
 
@@ -76,5 +62,32 @@ let computerWins = 0;
 //console.log(playRound(playerSelection, computerSelection));
 //console.log(playGame());
 
-let btnR = document.querySelector("rock");
-btnR.addEventListener("click", console.log(playRound("rock", getComputerChoice())));
+const btnR = document.querySelector("#rock");
+const btnP = document.querySelector("#paper");
+const btnS = document.querySelector("#scissors");
+const winnerText = document.querySelector("#winner");
+let scoreText = document.querySelector("#score");
+
+btnR.addEventListener("click", function () {
+    document.querySelector("#playerImg").textContent = image("rock");
+    computerSelection = getComputerChoice();
+    document.querySelector("#computerImg").textContent = image(computerSelection);
+    winnerText.textContent = playRound("rock", computerSelection);
+    scoreText.textContent = `${playerWins}:${computerWins}`;
+});
+
+btnP.addEventListener("click", function () {
+    document.querySelector("#playerImg").textContent = image("paper");
+    computerSelection = getComputerChoice();
+    document.querySelector("#computerImg").textContent = image(computerSelection);
+    winnerText.textContent = playRound("paper", computerSelection);
+    scoreText.textContent = `${playerWins}:${computerWins}`;
+});
+
+btnS.addEventListener("click", function () {
+    document.querySelector("#playerImg").textContent = image("scissors");
+    computerSelection = getComputerChoice();
+    document.querySelector("#computerImg").textContent = image(computerSelection);
+    winnerText.textContent = playRound("scissors", computerSelection);
+    scoreText.textContent = `${playerWins}:${computerWins}`;
+});

@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <script src="script.js"></script>
 
     <h1>Rock Paper Scissors</h1>
     <h2 id="score">0:0</h2>
@@ -17,13 +16,17 @@
     <div class="decision-container">
         <div class="player-decision-container">
             <h2>Player Decision</h2>
-            <h1>✂</h1>
+            <h1 id="playerImg"></h1>
         </div>
 
-        <h2 class="VS">VS</h2>
+        <div class="text-container">
+            <h3 id="winner"></h3>
+            <h2 class="VS">VS</h2>
+        </div>
 
         <div class="computer-decision-container">
             <h2>Computer Decision</h2>
+            <h1 id="computerImg"></h1>
         </div>
     </div>
 
@@ -33,6 +36,8 @@
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
     </div>
+    
+    <script src="script.js"></script>
 </body>
 
 </html>

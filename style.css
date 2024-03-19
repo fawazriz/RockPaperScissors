@@ -27,6 +27,16 @@ body {
     gap: 12%;
 }
 
+.text-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    flex-wrap: wrap;
+    width: 5%;
+    text-align: center;
+    justify-content: center;
+}
+
 .VS {
     font-size: 50px;
 }
@@ -45,7 +55,7 @@ body {
 }
 
 .player-decision-container h1, .computer-decision-container h1 {
-    font-size: 100px;
+    font-size: 6.45em;
     margin: 0;
 }
 
